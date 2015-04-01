@@ -762,7 +762,7 @@ function dblclick(d) {
 
   $.ajax({
     url: addVizUrl,
-    data: { id: d.id, lineage: true },
+    data: { id: d.id, lineage: true, show_props: true },
     success: function(data, sts, xhr) {
       addNodesAndLinks(data);
     },
