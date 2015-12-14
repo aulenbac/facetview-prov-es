@@ -17,6 +17,15 @@ def get_es_conn(es_url, index, alias=None):
     return conn
 
 
+def fix_ids(d):
+    """Replace '.' with '_' in all keys."""
+
+    for k, v in d.iteritems():
+        if '.' in k:
+            d[k.replace('.', '_')] = d.pop(k)
+        if isinstance(v, dict): fix_ids(v)
+
+
 def fix_hadMember_ids(prov_es_json):
     """Fix the id's of hadMember relationships."""
 
@@ -30,6 +39,10 @@ def fix_hadMember_ids(prov_es_json):
 
 def import_prov(conn, index, alias, prov_es_json):
     """Index PROV-ES concepts into ElasticSearch."""
+
+    # fix ids
+    fix_ids(prov_es_json)
+    #print(json.dumps(prov_es_json, indent=2))
 
     # fix hadMember ids
     fix_hadMember_ids(prov_es_json)

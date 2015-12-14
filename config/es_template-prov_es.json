@@ -24,14 +24,8 @@
           "match" : "*"
         }
       } ],
-      "_id": {
-        "type": "string",
-        "store": "yes",
-        "index": "not_analyzed"
-      },
       "_timestamp": {
-        "enabled": true,
-        "store": "yes"
+        "enabled": true
       },
       "properties" : {
         "@version" : {
