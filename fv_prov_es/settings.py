@@ -1,6 +1,6 @@
 class Config(object):
     SECRET_KEY = 'secret key'
-    ES_URL = 'http://128.149.61.135:9200' # default port is 9200
+    ES_URL = 'http://128.149.63.56:9200' # default port is 9200
 
     # for PROVES app
     PROVES_ES_PREFIX = 'prov_es'
